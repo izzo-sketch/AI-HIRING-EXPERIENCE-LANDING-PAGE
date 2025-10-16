@@ -38,20 +38,19 @@ export function Header() {
 
           {/* Progress Tracker */}
           <div className="flex items-center gap-6 flex-1 justify-end">
-            <div className="hidden md:flex items-center gap-3">
-              {icons.map((Icon, i) => (
-                <div
-                  key={i}
-                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                    i < watchedCount
-                      ? "bg-gradient-to-br from-[#f7a022] to-[#ff8c00] text-white scale-110 shadow-lg shadow-[#f7a022]/50"
-                      : "bg-white/10 text-white/50"
-                  }`}
-                >
-                  <Icon className={`w-5 h-5 transition-all duration-300 ${i < watchedCount ? 'text-white' : 'text-white/50'}`} />
-                </div>
-              ))}
-            </div>
+                      <div className="hidden md:flex items-center gap-3">
+                        {Array.from({ length: totalVideos }).map((_, i) => (
+                          <div
+                            key={i}
+                            className={`w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold transition-all duration-300 ${
+                              i < watchedCount
+                                ? "bg-gradient-to-br from-[#f7a022] to-[#ff8c00] text-white scale-110 shadow-lg shadow-[#f7a022]/50"
+                                : "bg-white/10 text-white/50"
+                            }`}>
+                            {i < watchedCount ? <Check className="w-6 h-6" /> : i + 1}
+                          </div>
+                        ))}
+                      </div>
 
             <div className="flex items-center gap-4">
               <div className="text-right">
@@ -72,13 +71,6 @@ export function Header() {
           </div>
         </div>
 
-        {/* Progress Bar */}
-        <div className="mt-3 h-1.5 bg-white/10 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-gradient-to-r from-[#f7a022] to-[#ff8c00] transition-all duration-700 ease-out"
-            style={{ width: `${progressPercentage}%` }}
-          />
-        </div>
       </div>
     </header>
   )

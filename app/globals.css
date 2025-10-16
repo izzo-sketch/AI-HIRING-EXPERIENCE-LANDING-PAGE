@@ -206,3 +206,33 @@
 .animate-slide-out {
   animation: slideOut 0.5s ease-out forwards;
 }
+
+/* Confetti animation */
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 16px;
+  top: -20px;
+  opacity: 0;
+  animation: fall 5s linear infinite, tumble 3s linear infinite;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-20px) rotateZ(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100vh) rotateZ(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes tumble {
+  0% {
+    transform: rotateX(0) rotateY(0);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}

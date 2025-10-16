@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import Image from "next/image"
 
 import { useState, useRef, useEffect } from "react"
 import { useVideoProgress } from "./video-provider"
@@ -8,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/hooks/use-toast"
+import Confetti from "./confetti"
 
 export function RewardSection() {
   const { allVideosWatched, watchedCount } = useVideoProgress()
@@ -115,8 +117,14 @@ export function RewardSection() {
             }}
           >
             <div className="flex justify-center mb-8">
-              <div className="w-24 h-24 rounded-full bg-[#f7a022]/10 flex items-center justify-center border-4 border-[#f7a022]/30">
-                <div className="text-5xl">🔒</div>
+              <div className="animate-bounce">
+                <Image
+                  src="/ajobthing-mascot.png"
+                  alt="AJobThing Mascot"
+                  width={180}
+                  height={180}
+                  className="object-contain"
+                />
               </div>
             </div>
             <h2 className="text-5xl md:text-7xl font-black mb-6 text-balance">
@@ -160,6 +168,7 @@ export function RewardSection() {
           </div>
         ) : !isSubmitted ? (
           <div className="relative">
+            <Confetti />
             <div className="absolute -top-4 -left-4 w-24 h-24 border-t-4 border-l-4 border-[#f7a022] rounded-tl-3xl opacity-60" />
             <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-4 border-r-4 border-[#f7a022] rounded-br-3xl opacity-60" />
 
@@ -171,6 +180,15 @@ export function RewardSection() {
                 borderColor: cardBorderColor,
               }}
             >
+              <div className="flex justify-center mb-8">
+                <Image
+                  src="/ajobthing-mascot.png"
+                  alt="AJobThing Mascot"
+                  width={180}
+                  height={180}
+                  className="object-contain"
+                />
+              </div>
               <div className="text-center mb-12">
                 <div className="inline-block mb-6 px-6 py-3 bg-[#f7a022]/10 border-2 border-[#f7a022]/30 rounded-full">
                   <span className="text-[#f7a022] text-sm font-bold tracking-wider uppercase">🎉 Congratulations!</span>
@@ -202,7 +220,7 @@ export function RewardSection() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="h-14 text-lg bg-white/80 backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-[#f7a022] focus:border-[#f7a022] hover:bg-white hover:border-[#f7a022]/50"
+                      className="h-14 text-lg text-black bg-white/80 backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-[#f7a022] focus:border-[#f7a022] hover:bg-white hover:border-[#f7a022]/50"
                     />
                   </div>
 
@@ -218,7 +236,7 @@ export function RewardSection() {
                       value={formData.contact}
                       onChange={handleChange}
                       required
-                      className="h-14 text-lg bg-white/80 backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-[#f7a022] focus:border-[#f7a022] hover:bg-white hover:border-[#f7a022]/50"
+                      className="h-14 text-lg text-black bg-white/80 backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-[#f7a022] focus:border-[#f7a022] hover:bg-white hover:border-[#f7a022]/50"
                     />
                   </div>
                 </div>
