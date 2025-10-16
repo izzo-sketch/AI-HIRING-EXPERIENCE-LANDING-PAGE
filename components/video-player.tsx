@@ -18,13 +18,13 @@ export function VideoPlayer({ videoId, title, description, videoUrl, thumbnail }
     <div className="group relative bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
       <div className="grid md:grid-cols-2 gap-6 p-6">
         <div className="relative aspect-video bg-black rounded-xl overflow-hidden">
-          <video
+          <iframe
             src={videoUrl}
-            poster={thumbnail}
-            controls
+            title={title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
             className="w-full h-full object-cover"
-            onEnded={() => markVideoComplete(videoId)}
-          />
+          ></iframe>
         </div>
 
         <div className="flex flex-col justify-center">
