@@ -22,7 +22,7 @@ const videos: VideoData[] = [
       "AI now writes compelling job ads, screens candidates, and even conducts virtual live interviews. And uniquely with Ajobthing, our AI doesn't just wait — it proactively approaches qualified candidates who didn't apply.",
     businessValue:
       "Fill jobs faster with better-matched candidates, while keeping costs at the same level as traditional job ads.",
-    videoUrl: "https://46mljmtrnj5yt90e.public.blob.vercel-storage.com/Final%20edit%20-%20AI%20Job%20Ad%20Video.mp4",
+    videoUrl: "/AJT-Hiring-Budget 2026 (compress).mp4",
     posterUrl: "/ai-job-ads.jpg",
   },
   {
@@ -31,7 +31,7 @@ const videos: VideoData[] = [
     description:
       "In the past, recruiters had to manually search, message, and screen. Now, AI does 70% of the work: Finds candidates matching your criteria, reaches out automatically, checks interest, and runs initial screening questions.",
     businessValue: "Reduce reliance on large recruiter teams while still building a high-quality pipeline.",
-    videoUrl: "https://46mljmtrnj5yt90e.public.blob.vercel-storage.com/AI%20Candidate%20Search.mp4",
+    videoUrl: "/AJT-Hiring-Budget 2026 (compress).mp4",
     posterUrl: "/ai-candidate-search.jpg",
   },
   {
@@ -41,7 +41,7 @@ const videos: VideoData[] = [
       "For companies with outlets, factories, or branches, AI makes walk-ins smarter: Promotes your event across social media, manages candidate sign-ups, and gives HQ real-time analytics for every branch.",
     businessValue:
       "Hire frontline and operations staff at scale, while headquarters tracks performance without being onsite.",
-    videoUrl: "https://46mljmtrnj5yt90e.public.blob.vercel-storage.com/Smart%20Walk-In.mp4",
+    videoUrl: "/AJT-Hiring-Budget 2026 (compress).mp4",
     posterUrl: "/smart-walkin.jpg",
   },
   {
@@ -61,7 +61,7 @@ const videos: VideoData[] = [
       "In the past, only large corporations could afford ATS systems. Now, Ajobthing makes them accessible at 1/10 the market price. Every resume from job ads, referrals, and walk-ins is stored in your private database.",
     businessValue:
       "Build a long-term hiring asset. When you need to hire, you don't start from zero — you simply reach into your own talent pool.",
-    videoUrl: "https://46mljmtrnj5yt90e.public.blob.vercel-storage.com/My%20Talent%20Pool-Final%20Revision.mp4",
+    videoUrl: "/AJT-Hiring-Budget 2026 (compress).mp4",
     posterUrl: "/talent-pool.jpg",
   },
 ]

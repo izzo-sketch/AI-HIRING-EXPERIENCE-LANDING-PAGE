@@ -3,7 +3,6 @@
 import { HeroSection } from "@/components/hero-section"
 import { Header } from "@/components/header"
 import { RewardSection } from "@/components/reward-section"
-import { VideoSection } from "@/components/video-section"
 import { VideoProvider } from "@/components/video-provider"
 
 export default function Home() {
@@ -15,8 +14,7 @@ export default function Home() {
         {/* <OldWaySection /> */}
         {/* <ProblemsSection /> */}
         {/* <CostComparisonSection /> */}
-        <VideoSection />
-        {/* <RewardSection /> */}
+        <RewardSection />
       </main>
     </VideoProvider>
   )
