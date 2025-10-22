@@ -236,3 +236,19 @@
     transform: rotateX(360deg) rotateY(360deg);
   }
 }
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-jump {
+  animation: jump 0.5s ease-in-out;
+}
