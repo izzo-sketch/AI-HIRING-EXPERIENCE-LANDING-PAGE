@@ -122,7 +122,7 @@ export function RewardSection() {
         style={{ transform: `translateX(-${scrollOffset * 0.15}px)` }}
       >
         <Image
-          src="/ajobthing-mascot-one.png"
+          src="/jobie-one.png"
           alt="AJobThing Mascot One"
           width={180}
           height={180}
@@ -138,7 +138,7 @@ export function RewardSection() {
         style={{ transform: `translateX(${scrollOffset * 0.05}px)` }}
       >
         <Image
-          src="/ajobthing-mascot-sing.png"
+          src="/jobie-sing.png"
           alt="AJobThing Mascot Sing"
           width={130}
           height={130}
