@@ -12,6 +12,7 @@ import { useToast } from "@/hooks/use-toast"
 import Confetti from "./confetti"
 
 export function RewardSection() {
+  // This comment was added to test Git's change detection.
   const { allVideosWatched, watchedCount } = useVideoProgress()
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
