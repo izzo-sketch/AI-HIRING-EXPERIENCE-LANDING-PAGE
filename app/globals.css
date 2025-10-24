@@ -250,5 +250,5 @@
 }
 
 .animate-jump {
-  animation: jump 0.5s ease-in-out;
+  animation: jump 0.5s ease-in-out infinite;
 }

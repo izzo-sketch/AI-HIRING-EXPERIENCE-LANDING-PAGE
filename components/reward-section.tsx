@@ -343,9 +343,7 @@ export function RewardSection() {
                   </Button>
                 </div>
 
-                <p className="text-sm text-center text-muted-foreground">
-                  By submitting, you agree to be contacted by our Account Manager regarding your reward.
-                </p>
+
               </form>
             </div>
           </div>
@@ -360,7 +358,7 @@ export function RewardSection() {
           >
             <div className="flex justify-center mb-8">
               <div className="w-24 h-24 rounded-full bg-[#f7a022]/20 flex items-center justify-center border-4 border-[#f7a022]">
-                <CheckCircle2 className="w-12 h-12 text-white fill-white" />
+                <CheckCircle2 className="w-12 h-12 text-primary fill-current" />
               </div>
             </div>
             <h2 className="text-5xl md:text-7xl font-black mb-6 text-balance">
@@ -373,7 +371,7 @@ export function RewardSection() {
             </p>
             <div className="max-w-xl mx-auto p-6 bg-[#f7a022]/10 rounded-xl border border-[#f7a022]/20 mb-8">
               <p className="text-lg text-gray-800 leading-relaxed">
-                Stay tuned — we’ll announce the daily winner in our WhatsApp group.
+                Stay tuned — We will announce the daily winner in our WhatsApp group.
                 <br />
                 Join here: <a href="https://epca.in/ajt-wa-channel" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline font-semibold">https://epca.in/ajt-wa-channel</a>
               </p>
