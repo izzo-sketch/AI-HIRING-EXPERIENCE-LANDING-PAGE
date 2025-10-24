@@ -13,7 +13,7 @@ export function VideoSection() {
       subtitle: "From RM800",
       description:
         "AI writes compelling job ads, screens candidates, and conducts virtual interviews—while proactively approaching qualified candidates",
-      videoUrl: "https://www.youtube.com/embed/BxNdFKCbwJM",
+      videoUrl: "/AI-Job-Ad-compress.mp4",
       thumbnail: "/ai-job-ads.jpg",
       color: "from-purple-500 to-pink-500",
       benefits: ["Auto-screen candidates", "Virtual interviews", "Proactive outreach"],
@@ -25,7 +25,7 @@ export function VideoSection() {
       subtitle: "RM10-30 per resume",
       description:
         "AI automates 70% of recruiting work—finding candidates, reaching out, checking interest, and running initial screening",
-      videoUrl: "https://www.youtube.com/embed/dOQzH_1uCjU",
+      videoUrl: "/AI-Candidate-Search-compress.mp4",
       thumbnail: "/ai-candidate-search.jpg",
       color: "from-cyan-500 to-blue-500",
       benefits: ["70% automation", "Smart matching", "Auto screening"],
@@ -37,7 +37,7 @@ export function VideoSection() {
       subtitle: "Few hundred RM/event",
       description:
         "AI promotes events across social media, manages sign-ups, and gives HQ real-time analytics for every branch",
-      videoUrl: "https://www.youtube.com/embed/-N-QdMgww0c",
+      videoUrl: "/Smart-Walk-In-compress.mp4",
       thumbnail: "/smart-walkin.jpg",
       color: "from-green-500 to-emerald-500",
       benefits: ["Social promotion", "Auto sign-ups", "Real-time analytics"],
@@ -61,7 +61,7 @@ export function VideoSection() {
       subtitle: "Few hundred RM/month",
       description:
         "Build your private talent database with auto-updating resumes. Access 5,000 to 300,000+ profiles instantly when you need to hire",
-      videoUrl: "https://www.youtube.com/embed/bHzR0dYEdRA",
+      videoUrl: "/My-Talent-Pool-compress.mp4",
       thumbnail: "/talent-pool.jpg",
       color: "from-violet-500 to-purple-500",
       benefits: ["Private database", "Auto-updates", "Instant access"],
