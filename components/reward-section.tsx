@@ -357,8 +357,8 @@ export function RewardSection() {
             }}
           >
             <div className="flex justify-center mb-8">
-              <div className="w-24 h-24 rounded-full bg-[#f7a022]/20 flex items-center justify-center border-4 border-[#f7a022]">
-                <CheckCircle2 className="w-12 h-12 text-primary fill-current" />
+              <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center border-4 border-[#f7a022]">
+                <CheckCircle2 className="w-12 h-12 text-black fill-current" />
               </div>
             </div>
             <h2 className="text-5xl md:text-7xl font-black mb-6 text-balance">
