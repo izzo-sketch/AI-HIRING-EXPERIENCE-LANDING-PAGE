@@ -242,29 +242,25 @@ export function RewardSection() {
                   alt="AJobThing Mascot"
                   width={180}
                   height={180}
-                  className="object-contain"n                />
+                  className="object-contain animate-jump"n                />
               </div>
               <div className="text-center mb-12">
-                <div className="inline-block mb-6 px-6 py-3 bg-[#f7a022]/10 border-2 border-[#f7a022]/30 rounded-full">
-                  <span className="text-[#f7a022] text-sm font-bold tracking-wider uppercase">🎉 Congratulations!</span>
-                </div>
-                <h2 className="text-6xl md:text-8xl font-black mb-6 text-balance leading-none">
-                  <span className="text-[#f7a022]">You Won a</span>
-                  <br />
-                  <span className="text-black">Reward!</span>
+                <h2 className="text-5xl md:text-7xl font-black mb-6 text-balance leading-none">
+                  <span className="text-[#f7a022]">🏆 You’ve Completed All Videos!</span>
                 </h2>
                 <p
                   className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed text-gray-600"
                 >
-                  You've completed all videos! Fill in your details below and our Account Manager will contact you
-                  shortly with your reward.
+                  You now stand a chance to win a ZUS Coffee voucher 🎁
+                  <br />
+                  Fill in your details below to enter the draw.
                 </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto">
                 <div className="space-y-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-base font-semibold">
+                    <Label htmlFor="name" className="text-base font-semibold text-black">
                       Full Name *
                     </Label>
                     <Input
@@ -279,7 +275,7 @@ export function RewardSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="contact" className="text-base font-semibold">
+                    <Label htmlFor="contact" className="text-base font-semibold text-black">
                       Contact Number *
                     </Label>
                     <Input
@@ -295,7 +291,7 @@ export function RewardSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="companyName" className="text-base font-semibold">
+                    <Label htmlFor="companyName" className="text-base font-semibold text-black">
                       Company Name *
                     </Label>
                     <Input
@@ -310,7 +306,7 @@ export function RewardSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="companyEmail" className="text-base font-semibold">
+                    <Label htmlFor="companyEmail" className="text-base font-semibold text-black">
                       Company Email *
                     </Label>
                     <Input
@@ -363,32 +359,24 @@ export function RewardSection() {
           >
             <div className="flex justify-center mb-8">
               <div className="w-24 h-24 rounded-full bg-[#f7a022]/20 flex items-center justify-center border-4 border-[#f7a022]">
-                <div className="text-5xl text-black">✓</div>
+                <div className="text-5xl text-black">✅</div>
               </div>
             </div>
             <h2 className="text-5xl md:text-7xl font-black mb-6 text-balance">
-              <span className="text-[#f7a022]">Thank You!</span>
+              <span className="text-[#f7a022]">Submission Received!</span>
             </h2>
             <p
               className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed text-gray-600"
             >
-              <span className="font-bold text-[#f7a022]">Congratulations, {formData.name}!</span>
+              Thanks for joining! 🎉
               <br />
-              You stand a chance to win Zus coffee voucher!
+              Stay tuned — we’ll announce the daily winner in our WhatsApp group.
+              <br />
+              Join here: <a href="https://epca.in/ajt-wa-channel" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">https://epca.in/ajt-wa-channel</a>
             </p>
-            <div className="max-w-xl mx-auto p-8 bg-[#f7a022]/5 rounded-2xl border border-[#f7a022]/20">
-              <h3 className="text-2xl font-bold mb-6 text-[#f7a022]">What's Next?</h3>
-              <ul className="text-left space-y-4 text-lg">
-                <li className="flex items-start gap-3">
-                  <span className="text-[#f7a022] text-2xl">✓</span>
-                  <span className="text-black">Join our WhatsApp channel: <a href="https://epca.in/ajt-wa-channel" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">https://epca.in/ajt-wa-channel</a>, we will announce the daily winner in the group</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#f7a022] text-2xl">✓</span>
-                  <span className="text-black">If you have any question, you can contact your personal Account Manager directly for more details.</span>
-                </li>
-              </ul>
-            </div>
+            <p className="text-lg max-w-2xl mx-auto leading-relaxed text-gray-600 mt-8">
+              If you have any questions, feel free to contact your Account Manager for more details.
+            </p>
           </div>
         )}
       </div>
