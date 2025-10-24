@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/hooks/use-toast"
+import { CheckCircle2 } from "lucide-react"
 import Confetti from "./confetti"
 
 export function RewardSection() {
@@ -242,7 +243,7 @@ export function RewardSection() {
                   alt="AJobThing Mascot"
                   width={180}
                   height={180}
-                  className="object-contain animate-jump"n                />
+                  className="object-contain animate-jump"                />
               </div>
               <div className="text-center mb-12">
                 <h2 className="text-5xl md:text-7xl font-black mb-6 text-balance leading-none">
@@ -359,21 +360,24 @@ export function RewardSection() {
           >
             <div className="flex justify-center mb-8">
               <div className="w-24 h-24 rounded-full bg-[#f7a022]/20 flex items-center justify-center border-4 border-[#f7a022]">
-                <div className="text-5xl text-black">✅</div>
+                <CheckCircle2 className="w-12 h-12 text-white fill-white" />
               </div>
             </div>
             <h2 className="text-5xl md:text-7xl font-black mb-6 text-balance">
               <span className="text-[#f7a022]">Submission Received!</span>
             </h2>
             <p
-              className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed text-gray-600"
+              className="text-xl md:text-2xl mb-4 max-w-2xl mx-auto leading-relaxed text-gray-600"
             >
-              Thanks for joining! 🎉
-              <br />
-              Stay tuned — we’ll announce the daily winner in our WhatsApp group.
-              <br />
-              Join here: <a href="https://epca.in/ajt-wa-channel" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">https://epca.in/ajt-wa-channel</a>
+              <span className="font-semibold">Thanks for joining! 🎉</span>
             </p>
+            <div className="max-w-xl mx-auto p-6 bg-[#f7a022]/10 rounded-xl border border-[#f7a022]/20 mb-8">
+              <p className="text-lg text-gray-800 leading-relaxed">
+                Stay tuned — we’ll announce the daily winner in our WhatsApp group.
+                <br />
+                Join here: <a href="https://epca.in/ajt-wa-channel" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline font-semibold">https://epca.in/ajt-wa-channel</a>
+              </p>
+            </div>
             <p className="text-lg max-w-2xl mx-auto leading-relaxed text-gray-600 mt-8">
               If you have any questions, feel free to contact your Account Manager for more details.
             </p>
