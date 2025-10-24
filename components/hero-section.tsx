@@ -46,12 +46,11 @@ const videos: VideoData[] = [
   },
   {
     id: "video4",
-    title: "AI Referral Programs – You set the reward (e.g., RM300 per hire)",
-    description:
-      "AI launches your referral program instantly, tracks referrals, manages resumes, and automates payouts.",
+    title: "AJobThing Care",
+    description: "",
     businessValue:
-      "Turn employees and networks into recruiters, lowering cost-per-hire while tapping into trusted recommendations.",
-    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "AJobThing Care provides a combination of performance protection, expert guidance and exclusive support when you post job ads or use candidate search.",
+    videoUrl: "/AJobThing-Care-We-are-ready-to-listen.mp4",
     posterUrl: "/ai-referral.jpg",
   },
   {

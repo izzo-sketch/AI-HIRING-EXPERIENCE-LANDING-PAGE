@@ -25,6 +25,8 @@ export function RewardSection() {
   const [formData, setFormData] = useState({
     name: "",
     contact: "",
+    companyName: "",
+    companyEmail: "",
   })
 
   useEffect(() => {
@@ -66,15 +68,41 @@ export function RewardSection() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyN_KfC7QdMzoByNXmgmNpVyrqekBKGoDtvbL5XJ5z91wkg1Kb2aNsNXOJy93ngX4kIZw/exec";
 
-    setIsSubmitted(true)
-    setIsSubmitting(false)
+    const data = new FormData();
+    data.append('Name', formData.name);
+    data.append('Contact', formData.contact);
+    data.append('CompanyName', formData.companyName);
+    data.append('CompanyEmail', formData.companyEmail);
 
-    toast({
-      title: "Success!",
-      description: "You won a reward from us! Our AM will contact you shortly.",
-    })
+    try {
+      const response = await fetch(WEB_APP_URL, {
+        method: 'POST',
+        body: data,
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        toast({
+          title: "Success!",
+          description: "You won a reward from us! Our AM will contact you shortly.",
+        });
+      } else {
+        const errorData = await response.json().catch(() => null); // See if Google Scripts sends a JSON error
+        console.error("Submission failed server-side:", errorData);
+        throw new Error('Failed to submit to Google Sheet.');
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -265,6 +293,37 @@ export function RewardSection() {
                       className="h-14 text-lg text-black bg-white/80 backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-[#f7a022] focus:border-[#f7a022] hover:bg-white hover:border-[#f7a022]/50"
                     />
                   </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="companyName" className="text-base font-semibold">
+                      Company Name *
+                    </Label>
+                    <Input
+                      id="companyName"
+                      name="companyName"
+                      placeholder="AJobThing Sdn Bhd"
+                      value={formData.companyName}
+                      onChange={handleChange}
+                      required
+                      className="h-14 text-lg text-black bg-white/80 backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-[#f7a022] focus:border-[#f7a022] hover:bg-white hover:border-[#f7a022]/50"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="companyEmail" className="text-base font-semibold">
+                      Company Email *
+                    </Label>
+                    <Input
+                      id="companyEmail"
+                      name="companyEmail"
+                      type="email"
+                      placeholder="hr@ajobthing.com"
+                      value={formData.companyEmail}
+                      onChange={handleChange}
+                      required
+                      className="h-14 text-lg text-black bg-white/80 backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-[#f7a022] focus:border-[#f7a022] hover:bg-white hover:border-[#f7a022]/50"
+                    />
+                  </div>
                 </div>
 
                 <div className="pt-6">
@@ -304,7 +363,7 @@ export function RewardSection() {
           >
             <div className="flex justify-center mb-8">
               <div className="w-24 h-24 rounded-full bg-[#f7a022]/20 flex items-center justify-center border-4 border-[#f7a022]">
-                <div className="text-5xl">✓</div>
+                <div className="text-5xl text-black">✓</div>
               </div>
             </div>
             <h2 className="text-5xl md:text-7xl font-black mb-6 text-balance">
@@ -315,23 +374,18 @@ export function RewardSection() {
             >
               <span className="font-bold text-[#f7a022]">Congratulations, {formData.name}!</span>
               <br />
-              You won a reward from us. Our Account Manager will contact you shortly at{" "}
-              <span className="font-bold text-[#f7a022]">{formData.contact}</span>
+              You stand a chance to win Zus coffee voucher!
             </p>
             <div className="max-w-xl mx-auto p-8 bg-[#f7a022]/5 rounded-2xl border border-[#f7a022]/20">
               <h3 className="text-2xl font-bold mb-6 text-[#f7a022]">What's Next?</h3>
               <ul className="text-left space-y-4 text-lg">
                 <li className="flex items-start gap-3">
                   <span className="text-[#f7a022] text-2xl">✓</span>
-                  <span>Our Account Manager will reach out to you within 24 hours</span>
+                  <span className="text-black">Join our WhatsApp channel: <a href="https://epca.in/ajt-wa-channel" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">https://epca.in/ajt-wa-channel</a>, we will announce the daily winner in the group</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-[#f7a022] text-2xl">✓</span>
-                  <span>You'll receive details about your exclusive reward</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#f7a022] text-2xl">✓</span>
-                  <span>Get personalized guidance on implementing AI hiring solutions</span>
+                  <span className="text-black">If you have any question, you can contact your personal Account Manager directly for more details.</span>
                 </li>
               </ul>
             </div>
