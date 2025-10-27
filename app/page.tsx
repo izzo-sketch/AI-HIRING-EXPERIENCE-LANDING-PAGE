@@ -15,7 +15,7 @@ export default function Home() {
         {/* <OldWaySection /> */}
         {/* <ProblemsSection /> */}
         {/* <CostComparisonSection /> */}
-        <RewardSection />
+        <RewardSection className="mt-8 md:mt-16 lg:mt-24" />
         <LeaderboardSection />
       </main>
     </VideoProvider>
