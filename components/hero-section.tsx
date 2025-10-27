@@ -78,6 +78,19 @@ export function HeroSection() {
   const playPromiseRef = useRef<Promise<void> | null>(null)
   const { progress, markVideoComplete, watchedCount } = useVideoProgress()
 
+  useEffect(() => {
+    const setDynamicHeight = () => {
+      document.documentElement.style.setProperty('--dynamic-height', `${window.innerHeight}px`);
+    };
+
+    setDynamicHeight();
+    window.addEventListener('resize', setDynamicHeight);
+
+    return () => {
+      window.removeEventListener('resize', setDynamicHeight);
+    };
+  }, []);
+
   const currentVideo = videos[currentIndex]
   const isCurrentVideoWatched = progress[currentVideo.id]
 
@@ -187,14 +200,14 @@ export function HeroSection() {
 
   return (
     <section
-      className="relative h-screen w-full overflow-hidden group"
+      className="relative min-h-screen h-[var(--dynamic-height)] w-full overflow-hidden group"
       onMouseEnter={() => setShowInfo(true)}
       onMouseLeave={() => setShowInfo(false)}
     >
       <video
         key={currentVideo.videoUrl}
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full max-h-full w-auto object-cover"
         loop
         muted={isMuted}
         playsInline
