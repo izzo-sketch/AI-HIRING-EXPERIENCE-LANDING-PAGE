@@ -129,10 +129,8 @@ export function RewardSection() {
     >
 
       <div
-        className={`absolute -left-20 top-1/4 transition-all duration-1000 ${
-          isSectionInView ? "translate-x-60" : ""
-        }`}
-        style={{ transform: `translateX(${scrollOffset * 0.1}px)` }}
+        className={`absolute -left-10 top-1/4 transition-all duration-1000 z-20 hidden md:block`}
+        style={{ transform: `translateX(${scrollOffset * 0.08}px)` }}
       >
         <Image
           src="/ajobthing-mascot.png"
@@ -145,10 +143,8 @@ export function RewardSection() {
         />
       </div>
       <div
-        className={`absolute -right-40 top-1/2 transition-all duration-1000 delay-200 ${
-          isSectionInView ? "-translate-x-60" : ""
-        }`}
-        style={{ transform: `translateX(-${scrollOffset * 0.15}px)` }}
+        className={`absolute -right-10 top-1/2 transition-all duration-1000 delay-200 z-20 hidden md:block`}
+        style={{ transform: `translateX(-${scrollOffset * 0.12}px)` }}
       >
         <Image
           src="/jobie-one.png"
@@ -161,10 +157,8 @@ export function RewardSection() {
         />
       </div>
       <div
-        className={`absolute -left-20 bottom-1/4 transition-all duration-1000 delay-400 ${
-          isSectionInView ? "translate-x-80" : ""
-        }`}
-        style={{ transform: `translateX(${scrollOffset * 0.05}px)` }}
+        className={`absolute -left-10 bottom-1/4 transition-all duration-1000 delay-400 z-20 hidden md:block`}
+        style={{ transform: `translateX(${scrollOffset * 0.04}px)` }}
       >
         <Image
           src="/jobie-sing.png"
@@ -357,8 +351,14 @@ export function RewardSection() {
             }}
           >
             <div className="flex justify-center mb-8">
-              <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center border-4 border-[#f7a022]">
-                <CheckCircle2 className="w-12 h-12 text-black fill-current" />
+              <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center border-4 border-[#f7a022] p-1">
+                <Image
+                  src="/ajobthing-mascot.png"
+                  alt="AJobThing Mascot"
+                  width={80}
+                  height={80}
+                  className="object-contain"
+                />
               </div>
             </div>
             <h2 className="text-5xl md:text-7xl font-black mb-6 text-balance">

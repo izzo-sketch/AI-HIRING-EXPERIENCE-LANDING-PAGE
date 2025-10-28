@@ -207,7 +207,7 @@ export function HeroSection() {
       <video
         key={currentVideo.videoUrl}
         ref={videoRef}
-        className="absolute inset-0 w-full max-h-full w-auto object-cover"
+        className="absolute top-0 left-0 min-w-full min-h-full object-cover"
         loop
         muted={isMuted}
         playsInline
@@ -254,114 +254,119 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 h-full flex flex-col justify-end p-8 md:p-16 lg:p-20">
-        <div
-          className={`transition-all duration-500 mb-8 ${
-            showInfo ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/40 rounded-full backdrop-blur-md">
-              <span className="text-primary text-sm font-semibold uppercase tracking-wide">
-                {currentVideo.id.replace("video", "Solution ")}
-              </span>
-            </div>
-                {isCurrentVideoWatched && (
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/20 border border-green-500/40 rounded-full backdrop-blur-md">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
-                    <span className="text-green-500 text-sm font-semibold">Watched</span>
-                  </div>
-                )}          </div>
-
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance leading-tight max-w-4xl">
-            <span className="block text-foreground">{currentVideo.title}</span>
-          </h1>
-
-          <p className="text-base md:text-lg text-muted-foreground mb-4 max-w-3xl text-pretty leading-relaxed">
-            {currentVideo.description}
-          </p>
-
-          <div className="flex items-start gap-3 p-4 bg-primary/10 border border-primary/20 rounded-xl backdrop-blur-sm max-w-3xl">
-            <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-            <div>
-              <p className="text-sm font-semibold text-primary mb-1">Business Value</p>
-              <p className="text-sm text-foreground/90 leading-relaxed">{currentVideo.businessValue}</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <Button
-              size="lg"
-              onClick={handlePlayPause}
-              className="rounded-full w-14 h-14 bg-primary hover:bg-primary/90 hover:scale-110 transition-all duration-300 shadow-lg shadow-primary/50"
-            >
-              {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-1" />}
-            </Button>
-
-            <Button
-              size="icon"
-              variant="ghost"
-              onClick={handleMuteToggle}
-              className="rounded-full w-12 h-12 bg-background/20 hover:bg-background/40 backdrop-blur-md border border-border/20"
-            >
-              {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-            </Button>
-
-            <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-background/20 backdrop-blur-md rounded-full border border-border/20">
-              <Clock className="w-4 h-4 text-muted-foreground" />
-              <span className="text-sm text-foreground font-mono">
-                {formatTime(currentTime)} / {formatTime(duration)}
-              </span>
-            </div>
-
-            <div className="hidden lg:block text-sm text-muted-foreground ml-2">
-              {isPlaying ? "Now Playing" : "Paused"}
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={handlePrevious}
-              className="rounded-full bg-background/20 hover:bg-background/40 backdrop-blur-md border-border/20"
-            >
-              <ChevronLeft className="w-5 h-5 mr-1" />
-              <span className="hidden md:inline">Previous</span>
-            </Button>
-
-            <Button
-              size="lg"
-              onClick={handleNext}
-              className="rounded-full bg-primary hover:bg-primary/90 shadow-lg shadow-primary/30"
-            >
-              <span className="hidden md:inline">Next</span>
-              <ChevronRight className="w-5 h-5 ml-1" />
-            </Button>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-center gap-2 mt-6">
-          {videos.map((video, index) => (
-            <button
-              key={video.id}
-              onClick={() => setCurrentIndex(index)}
-              className={`relative transition-all duration-300 ${
-                index === currentIndex ? "w-8 h-2" : "w-2 h-2"
-              } rounded-full ${
-                progress[video.id]
-                  ? "bg-green-500"
-                  : index === currentIndex
-                    ? "bg-primary"
-                    : "bg-muted/50 hover:bg-muted"
-              }`}
-            >
-              {progress[video.id] && (
-                <CheckCircle2 className="absolute -top-1 -right-1 w-3 h-3 text-green-500 fill-green-500" />
+        <div>
+          <div
+            className={`transition-all duration-500 mb-8 ${
+              showInfo ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/40 rounded-full backdrop-blur-md">
+                <span className="text-primary text-sm font-semibold uppercase tracking-wide">
+                  {currentVideo.id.replace("video", "Solution ")}
+                </span>
+              </div>
+              {isCurrentVideoWatched && (
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/20 border border-green-500/40 rounded-full backdrop-blur-md">
+                  <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <span className="text-green-500 text-sm font-semibold">Watched</span>
+                </div>
               )}
-            </button>
-          ))}
+            </div>
+
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance leading-tight max-w-4xl">
+              <span className="block text-foreground">{currentVideo.title}</span>
+            </h1>
+
+            <p className="text-base md:text-lg text-muted-foreground mb-4 max-w-3xl text-pretty leading-relaxed">
+              {currentVideo.description}
+            </p>
+
+            <div className="flex items-start gap-3 p-4 bg-primary/10 border border-primary/20 rounded-xl backdrop-blur-sm max-w-3xl">
+              <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+              <div>
+                <p className="text-sm font-semibold text-primary mb-1">Price Range</p>
+                <p className="text-sm text-primary leading-relaxed">{currentVideo.businessValue}</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <Button
+                  size="lg"
+                  onClick={handlePlayPause}
+                  className="rounded-full w-14 h-14 bg-primary hover:bg-primary/90 hover:scale-110 transition-all duration-300 shadow-lg shadow-primary/50"
+                >
+                  {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-1" />}
+                </Button>
+
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  onClick={handleMuteToggle}
+                  className="rounded-full w-12 h-12 bg-background/20 hover:bg-background/40 backdrop-blur-md border border-border/20"
+                >
+                  {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                </Button>
+
+                <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-background/20 backdrop-blur-md rounded-full border border-border/20">
+                  <Clock className="w-4 h-4 text-muted-foreground" />
+                  <span className="text-sm text-foreground font-mono">
+                    {formatTime(currentTime)} / {formatTime(duration)}
+                  </span>
+                </div>
+
+                <div className="hidden lg:block text-sm text-muted-foreground ml-2">
+                  {isPlaying ? "Now Playing" : "Paused"}
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={handlePrevious}
+                  className="rounded-full bg-background/20 hover:bg-background/40 backdrop-blur-md border border-border/20"
+                >
+                  <ChevronLeft className="w-5 h-5 mr-1" />
+                  <span className="hidden md:inline">Previous</span>
+                </Button>
+
+                <Button
+                  size="lg"
+                  onClick={handleNext}
+                  className="rounded-full bg-primary hover:bg-primary/90 shadow-lg shadow-primary/30"
+                >
+                  <span className="hidden md:inline">Next</span>
+                  <ChevronRight className="w-5 h-5 ml-1" />
+                </Button>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-center gap-2 mt-6">
+              {videos.map((video, index) => (
+                <button
+                  key={video.id}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`relative transition-all duration-300 ${
+                    index === currentIndex ? "w-8 h-2" : "w-2 h-2"
+                  } rounded-full ${
+                    progress[video.id]
+                      ? "bg-green-500"
+                      : index === currentIndex
+                        ? "bg-primary"
+                        : "bg-muted/50 hover:bg-muted"
+                  }`}
+                >
+                  {progress[video.id] && (
+                    <CheckCircle2 className="absolute -top-1 -right-1 w-3 h-3 text-green-500 fill-green-500" />
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
