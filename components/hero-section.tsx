@@ -91,6 +91,7 @@ export function HeroSection({ onFirstPlay }: { onFirstPlay: () => void }) {
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false)
   const [infoTimeout, setInfoTimeout] = useState<NodeJS.Timeout | null>(null)
   const [mouseMoveTimeout, setMouseMoveTimeout] = useState<NodeJS.Timeout | null>(null)
+  const infoPopupTimerRef = useRef<NodeJS.Timeout | null>(null)
 
   const handleMouseMove = () => {
     if (isMobile) return
@@ -199,6 +200,7 @@ export function HeroSection({ onFirstPlay }: { onFirstPlay: () => void }) {
   }, [currentIndex])
 
   const handlePlayPause = async () => {
+    console.log("handlePlayPause called. isPlaying:", isPlaying); // Added log
     if (!hasPlayedOnce) {
       setHasPlayedOnce(true)
       onFirstPlay()
@@ -216,10 +218,12 @@ export function HeroSection({ onFirstPlay }: { onFirstPlay: () => void }) {
         setIsPlaying(false)
       } else {
         try {
+          console.log("Attempting to play video..."); // Added log
           playPromiseRef.current = videoRef.current.play()
           await playPromiseRef.current
           playPromiseRef.current = null
           setIsPlaying(true)
+          console.log("Video played successfully. isPlaying set to true."); // Added log
           if (!isMobile) {
             setShowInfo(false)
           }
@@ -229,6 +233,7 @@ export function HeroSection({ onFirstPlay }: { onFirstPlay: () => void }) {
           }
           playPromiseRef.current = null
           setIsPlaying(false)
+          console.log("Video play failed. isPlaying set to false."); // Added log
         }
       }
     }
@@ -307,5 +312,84 @@ export function HeroSection({ onFirstPlay }: { onFirstPlay: () => void }) {
       </div>
     </div>
   )
-
+// This is your line 311
   return (
+    <div 
+      className="relative w-full h-screen bg-black" // A container that fills the screen
+      onMouseMove={handleMouseMove} // This attaches your mouse move logic
+    >
+      
+      {/* --- Top Right Info (Video Count) --- */}
+      <div className="absolute top-10 right-10 z-10 flex items-center gap-3 text-white">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/40 rounded-full backdrop-blur-md">
+          <CheckCircle2 className="w-5 h-5 text-primary" />
+          <span className="text-sm font-semibold text-primary">{watchedCount}/{videos.length} videos watched</span>
+        </div>
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-background/80 backdrop-blur-md rounded-full border border-border/20">
+          <span className="text-sm font-semibold text-foreground">{currentIndex + 1}/{videos.length}</span>
+        </div>
+      </div>
+
+      {/* --- Top Left Info (Timer / Watched) --- */}
+      {isCurrentVideoWatched ? (
+        <div className="absolute top-10 left-10 z-10 inline-flex items-center gap-2 px-4 py-2 bg-green-500/20 border border-green-500/40 rounded-full backdrop-blur-md">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check w-4 h-4 text-green-500"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+          <span class="text-green-500 text-sm font-semibold">Watched</span>
+        </div>
+      ) : (secondsToGo > 0 && (
+        <div className="absolute top-10 left-10 z-10 inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/40 rounded-full backdrop-blur-md animate-pulse">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock w-4 h-4 text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span class="text-primary text-sm font-semibold">Watch {Math.floor(secondsToGo)} more seconds</span>
+        </div>
+      ))}
+
+      {/* --- The Video Player --- */}
+      <video
+        ref={videoRef}
+        src={currentVideo.videoUrl}
+        poster={currentVideo.posterUrl}
+        muted={isMuted}
+        playsInline // Important for iOS
+        className="absolute top-0 left-0 w-full h-full object-cover" // Makes video fill the container
+        onClick={handlePlayPause} // Added onClick handler
+      />
+
+      {showInfo && (
+        <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/90 to-transparent p-10 pb-32 text-white"> {/* Adjusted bottom positioning and padding */}
+          <div className="flex items-center gap-3 mb-4">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/40 rounded-full backdrop-blur-md text-primary text-sm font-semibold uppercase tracking-wide">
+              Solution {currentIndex + 1}
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance leading-tight max-w-4xl">{currentVideo.title}</h1> {/* Updated class names */}
+          <h2 className="text-base md:text-lg text-gray-200 mb-4 max-w-3xl text-pretty leading-relaxed"> {/* Updated class names */}
+            {currentVideo.description.split('\n\n').map((paragraph, index) => (
+              <p key={index} className="mt-2">{paragraph}</p>
+            ))}
+          </h2>
+          <div className="flex items-center justify-center gap-2 mt-6">
+            {videos.map((video, index) => (
+              <button
+                key={video.id}
+                className={`relative transition-all duration-300 rounded-full ${index === currentIndex ? "w-8" : "w-2"} h-2 ${progress[video.id] ? "bg-green-500" : "bg-muted/50 hover:bg-muted"}`}
+              >
+                {progress[video.id] && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check absolute -top-1 -right-1 w-3 h-3 text-green-500 fill-green-500"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* --- The Controls --- */}
+      {/* This renders all the buttons from your 'renderVideoControls' function */}
+      <div className="absolute bottom-10 left-10 right-10 z-10">
+        {renderVideoControls(isMobile)}
+      </div>
+
+    </div>
+  )
+
+} // <-- THIS IS THE CLOSING BRACE YOU WERE MISSING
+ 
