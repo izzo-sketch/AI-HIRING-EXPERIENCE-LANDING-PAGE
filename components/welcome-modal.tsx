@@ -31,7 +31,7 @@ export function WelcomeModal({ onStart }: WelcomeModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[425px] bg-white shadow-lg" style={{ "--accent": "#f7a022" }}>
+      <DialogContent className="sm:max-w-[425px] bg-white shadow-lg z-[9999]" style={{ "--accent": "#f7a022" }}>
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-center text-[#222222]">Let’s explore our AI Hiring Solutions!</DialogTitle>
         </DialogHeader>
