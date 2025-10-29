@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import { Toaster } from "@/components/ui/sonner"
 import { Suspense } from "react"
 import { Open_Sans as V0_Font_Open_Sans } from 'next/font/google'
 
@@ -28,6 +29,7 @@ export default function RootLayout({
           {children}
           <Analytics />
         </Suspense>
+        <Toaster />
       </body>
     </html>
   )
