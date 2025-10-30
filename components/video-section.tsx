@@ -18,18 +18,7 @@ export function VideoSection() {
       color: "from-purple-500 to-pink-500",
       benefits: ["Auto-screen candidates", "Virtual interviews", "Proactive outreach"],
     },
-    {
-      id: "video2" as const,
-      icon: Zap,
-      title: "AI Candidate Search",
-      subtitle: "RM10-30 per resume",
-      description:
-        "AI automates 70% of recruiting work—finding candidates, reaching out, checking interest, and running initial screening",
-      videoUrl: "/AI-Candidate-Search-compress.mp4",
-      thumbnail: "/ai-candidate-search.jpg",
-      color: "from-cyan-500 to-blue-500",
-      benefits: ["70% automation", "Smart matching", "Auto screening"],
-    },
+
     {
       id: "video3" as const,
       icon: Users,
@@ -79,12 +68,12 @@ export function VideoSection() {
             <div className="inline-block mb-6 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
               <span className="text-primary text-sm font-medium">THE AI TRANSFORMATION</span>
             </div>
-            <h2 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
-              5 AI Solutions That
-              <span className="block bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                Change Everything
-              </span>
-            </h2>
+              <h2 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
+                4 AI Solutions That
+                <span className="block bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                  Change Everything
+                </span>
+              </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
               Watch each video to discover how AI makes hiring faster, smarter, and more cost-effective
             </p>

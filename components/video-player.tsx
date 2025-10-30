@@ -4,7 +4,7 @@ import type React from "react"
 import { useVideoProgress } from "./video-provider"
 
 interface VideoPlayerProps {
-  videoId: "video1" | "video2" | "video3" | "video4" | "video5"
+  videoId: "video1" | "video3" | "video4" | "video5"
   title: string
   description: string
   videoUrl: string

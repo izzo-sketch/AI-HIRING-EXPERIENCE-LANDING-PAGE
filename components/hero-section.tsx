@@ -7,7 +7,7 @@ import { useVideoProgress } from "./video-provider"
 import { useIsMobile } from "@/hooks/use-mobile"
 
 interface VideoData {
-  id: "video1" | "video2" | "video3" | "video4" | "video5"
+  id: "video1" | "video3" | "video4" | "video5"
   title: string
   description: string
   businessValue: string
@@ -25,15 +25,6 @@ const videos: VideoData[] = [
       "Fill jobs faster with better-matched candidates, while keeping costs at the same level as traditional job ads.",
     videoUrl: "/AI-Job-Ad-compress.mp4",
     posterUrl: "/ai-job-ads.jpg",
-  },
-  {
-    id: "video2",
-    title: "AI Candidate Search",
-    description:
-      "In the past, recruiters spent countless hours sourcing and screening.\n\nToday, AI does 70% of the heavy lifting — identifying the right candidates, contacting them automatically, confirming interest, and managing first-round screening.",
-    businessValue: "Reduce reliance on large recruiter teams while still building a high-quality pipeline.",
-    videoUrl: "/AI-Candidate-Search-compress.mp4",
-    posterUrl: "/ai-candidate-search.jpg",
   },
   {
     id: "video3",
@@ -61,7 +52,7 @@ const videos: VideoData[] = [
     description:
       "AJobThing makes ATS capabilities accessible at just 1/10 of the usual cost, storing every resume from job ads, referrals, and walk-ins into your own private database.\n\nYou’re not just hiring — you’re building a long-term talent asset, so you never have to start from zero again.",
     businessValue:
-      "Build a long-term hiring asset. When you need to hire, you don\'t start from zero — you simply reach into your own talent pool.",
+      "Build a long-term hiring asset. When you need to hire, you don't start from zero — you simply reach into your own talent pool.",
     videoUrl: "/My-Talent-Pool-compress.mp4",
     posterUrl: "/talent-pool.jpg",
   },
@@ -333,13 +324,13 @@ export function HeroSection({ onFirstPlay }: { onFirstPlay: () => void }) {
       {/* --- Top Left Info (Timer / Watched) --- */}
       {isCurrentVideoWatched ? (
         <div className="absolute top-10 left-10 z-10 inline-flex items-center gap-2 px-4 py-2 bg-green-500/20 border border-green-500/40 rounded-full backdrop-blur-md">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check w-4 h-4 text-green-500"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
-          <span class="text-green-500 text-sm font-semibold">Watched</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-check w-4 h-4 text-green-500"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+          <span className="text-green-500 text-sm font-semibold">Watched</span>
         </div>
       ) : (secondsToGo > 0 && (
         <div className="absolute top-10 left-10 z-10 inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/40 rounded-full backdrop-blur-md animate-pulse">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock w-4 h-4 text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          <span class="text-primary text-sm font-semibold">Watch {Math.floor(secondsToGo)} more seconds</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-clock w-4 h-4 text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span className="text-primary text-sm font-semibold">Watch {Math.floor(secondsToGo)} more seconds</span>
         </div>
       ))}
 
@@ -374,7 +365,7 @@ export function HeroSection({ onFirstPlay }: { onFirstPlay: () => void }) {
                 className={`relative transition-all duration-300 rounded-full ${index === currentIndex ? "w-8" : "w-2"} h-2 ${progress[video.id] ? "bg-green-500" : "bg-muted/50 hover:bg-muted"}`}
               >
                 {progress[video.id] && (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check absolute -top-1 -right-1 w-3 h-3 text-green-500 fill-green-500"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-check absolute -top-1 -right-1 w-3 h-3 text-green-500 fill-green-500"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
                 )}
               </button>
             ))}
@@ -392,4 +383,3 @@ export function HeroSection({ onFirstPlay }: { onFirstPlay: () => void }) {
   )
 
 } // <-- THIS IS THE CLOSING BRACE YOU WERE MISSING
- 

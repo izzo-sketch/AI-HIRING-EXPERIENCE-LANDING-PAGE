@@ -36,11 +36,15 @@ export function WelcomeModal({ onStart }: WelcomeModalProps) {
           <DialogTitle className="text-2xl font-bold text-center text-[#222222]">Let’s explore our AI Hiring Solutions!</DialogTitle>
         </DialogHeader>
         <DialogDescription className="text-center text-lg text-[#222222]">
-          Watch 5 videos and stand a chance to win a ZUS Coffee!
+          Watch 4 videos and stand a chance to win a ZUS Coffee!
         </DialogDescription>
         <div className="flex justify-center pt-4">
-          <Button onClick={handleStart} style={{ backgroundColor: "var(--accent)", color: "white" }}>
-            Start
+          <Button
+            onClick={handleStart}
+            className="bg-[#f7a022] text-white hover:bg-[#f7a022]/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#f7a022]/40 relative overflow-hidden group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+            <span className="relative">Start</span>
           </Button>
         </div>
       </DialogContent>

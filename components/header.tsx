@@ -6,9 +6,9 @@ import { Check, Sparkles, Zap, Users, Gift, Database } from "lucide-react"
 
 export function Header() {
   const { watchedCount, allVideosWatched } = useVideoProgress()
-  const totalVideos = 5
+  const totalVideos = 4
   const progressPercentage = (watchedCount / totalVideos) * 100
-  const icons = [Sparkles, Zap, Users, Gift, Database]
+  const icons = [Sparkles, Users, Gift, Database]
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
